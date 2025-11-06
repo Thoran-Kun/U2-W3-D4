@@ -27,6 +27,8 @@ const getData = function () {
       // sostituisco le immagini alla pressione del bottone
       images.forEach((img, i) => {
         if (photos[i]) {
+          // entro dentro ogni foto, la "i" me le cicla quindi una volta sarà la prima, una
+          // volta sarà la seconda etc. e la cambio con la rispettiva del criceto o della tigre
           img.src = photos[i].src.medium
         }
       })
@@ -66,3 +68,11 @@ const getData2 = function () {
     })
 }
 document.getElementById("btn-tigers").addEventListener("click", getData2)
+
+const editButtons = document.querySelectorAll(".btn-outline-secondary")
+
+editButtons.forEach((btn) => {
+  if (btn.textContent.trim() === "Edit") {
+    btn.textContent = "Hide"
+  }
+})
